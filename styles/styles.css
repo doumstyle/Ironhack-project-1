@@ -1,0 +1,321 @@
+@font-face {
+	font-family: 'SingleFighter';
+	src: url('./../assets/fonts/SingleFighter.otf');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'PressStart';
+	src: url('./../assets/fonts/PressStart.ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+	font-family: 'SingleFighter', sans-serif;
+	margin: 0;
+	padding: 0;
+	background: url('../assets/img/SuzakuCastle.jpg') no-repeat, url('./../assets/img/fond.png') repeat;
+	height: 700px;
+	color: whitesmoke;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 664px;
+}
+
+@keyframes idling {
+	from {
+		background-position: 0px;
+	}
+	to {
+		background-position: -1225px;
+	}
+}
+
+@keyframes hit {
+	from {
+		background-position: 0px;
+	}
+	to {
+		background-position: -1225px;
+	}
+}
+
+/* @-webkit-keyframes scale-up-center {
+	from {
+		-webkit-transform: scale(0.5);
+				transform: scale(0.3);
+	}
+	to {
+		-webkit-transform: scale(1);
+				transform: scale(1.3);
+	}
+	}
+	@keyframes scale-up-center {
+	from {
+		-webkit-transform: scale(0.5);
+				transform: scale(0.3);
+	}
+	to {
+		-webkit-transform: scale(1);
+				transform: scale(1.3);
+	}
+} */
+
+.streetFont {
+	background: linear-gradient(#ff3c00, #ff7b00, #ffe600);
+    -webkit-background-clip: text;
+	background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+header img {
+	mix-blend-mode: unset;
+	height: 100px;
+	border-radius: 100%;
+    margin: 0 10px;
+}
+
+header p {
+	margin: 0 5px;
+	
+}
+
+header span {
+	margin: -30px 10px;
+	font-size: 3em;
+}
+
+#player, #computer {
+	display: flex;
+	flex-direction: column;
+}
+
+#player-mug {
+	width: 82px;
+	height: 101px;
+}
+
+.player-lifebar, .computer-lifebar {
+	width: 40vW;
+	height: 30px;
+	border: 3px solid;
+	border-radius: 20px;
+	display: flex;
+}
+
+.player-chunk-1,
+.player-chunk-2,
+.player-chunk-3,
+.computer-chunk-1,
+.computer-chunk-2,
+.computer-chunk-3 {
+	width: 33vw;
+	height: 30px;
+}
+
+.player-chunk-1 {
+	background: linear-gradient(to right, #9dff00, #ffd900);
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.player-chunk-2 {
+	background: linear-gradient(to right, #ffd900, #ffae00);
+}
+
+.player-chunk-3 {
+	background: linear-gradient(to right, #ffae00, #ff3300);
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+.computer-chunk-1 {
+	background: linear-gradient(to left, #9dff00, #ffd900);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.computer-chunk-2 {
+	background: linear-gradient(to left, #ffd900, #ffae00);
+}
+
+.computer-chunk-3 {
+	background: linear-gradient(to left, #ffae00, #ff3300);
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+#player-score, #computer-score {
+	display: flex;
+}
+
+.player-score-1,
+.player-score-2,
+.player-score-3,
+.computer-score-1,
+.computer-score-2,
+.computer-score-3 {
+	height: 15px;
+	width: 15px;
+	border: 1px solid;
+	border-radius: 50%;
+	margin: 5px 2px 0;
+}
+
+#player-score, #computer p {
+	align-self: end;
+}
+
+#actions {
+	display: flex;
+    justify-content: center;
+    position: absolute;
+    align-content: center;
+    bottom: 3em;
+    flex-direction: column;
+}
+
+#actions button {
+	height: 110px;
+    width: 330px;
+    background: transparent;
+    font-size: 1.3em;
+    border: none;
+    padding: 0 0 0px;
+    border-radius: 10px;
+    margin: 0 30px 0 0;
+    text-align: center;
+    line-height: 100px;
+    font-family: 'SingleFighter', sans-serif;
+	cursor: pointer;
+}
+
+#actions button:hover {
+	transform: perspective(1px) scale3d(1.10,1.10,1);
+}
+
+#actions .paper {
+	color: brown;
+}
+
+#actions .vomit {
+	color: greenyellow;
+}
+
+#actions .plastic {
+	color: lightgrey;
+}
+
+#actions img {
+	height: 40px;
+}
+
+#action button:nth-child(2) img {
+	mix-blend-mode: multiply;
+}
+
+.won {
+	background-color: #ffee00;
+}
+
+.hidden {
+	display: none;
+}
+
+#characters {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12.7em;
+}
+
+.playerIdling {
+	background: url('../assets/img/idle-ryu.png');
+    height: 440px;
+    width: 200px;
+    animation: idling 0.8s steps(4) infinite;
+    margin-right: 25em;
+    position: relative;
+}
+
+.playerHit {
+	background: url('../assets/img/hit-ryu.png');
+    height: 440px;
+    width: 200px;
+    animation: hit 0.8s steps(4) 1;
+    margin-right: 25em;
+    position: relative;
+	bottom: -2em;
+}
+
+.computerIdling {
+	background: url('../assets/img/idle-ken.png');
+    height: 342px;
+    width: 225px;
+    animation: idling 1.0s steps(4) infinite;
+    position: relative;
+    margin-left: 10em;
+    right: 6em;
+    bottom: 0.9em;
+}
+
+.computerHit {
+	background: url('../assets/img/hit-ken.png');
+    height: 440px;
+    width: 300px;
+    animation: hit 0.8s steps(4) 1;
+    margin-right: 10em;
+    position: relative;
+    bottom: 0.2em;
+    left: 6em;
+}
+
+#endgame {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.retry {
+	font-size: 2em;
+    font-family: 'PressStart';
+	text-decoration: none;
+}
+
+.retry:link, .retry:visited, .retry:active {
+	background: linear-gradient(#ff3c00, #ff7b00, #ffe600);
+	-webkit-background-clip: text;
+	background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.retry:hover {
+	transform: perspective(1px) scale3d(1.07,1.07,1);
+}
+
+.message {
+	font-size: 1.2em;
+}
+
+#choices {
+	display: flex;
+	font-size: 4em;
+}
+
+/* .scale-up-center {
+	-webkit-animation: scale-up-center 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: scale-up-center 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+ */

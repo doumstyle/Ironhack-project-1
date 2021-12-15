@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>PVP!</title>
+	<script src="./js/computer.js"></script>
+	<script src="./js/player.js"></script>
+	<script type="module" src="./js/game.js"></script>
+</head>
+<body>
+	<header class="streetFont">
+		<img src="./assets/img/ryu.png" alt="mugshot">
+		<div id="player">
+			<div class="player-lifebar">
+				<div class="player-chunk-1"></div>
+				<div class="player-chunk-2"></div>
+				<div class="player-chunk-3"></div>
+			</div>
+			<div id="player-score">
+				<div class="player-score-3"></div>
+				<div class="player-score-2"></div>
+				<div class="player-score-1"></div>
+			</div>
+			<p>Ryu</p>
+		</div>
+		<span>VS</span>
+		<div id="computer">
+			<div class="computer-lifebar">
+				<div class="computer-chunk-3"></div>
+				<div class="computer-chunk-2"></div>
+				<div class="computer-chunk-1"></div>
+			</div>
+			<div id="computer-score">
+				<div class="computer-score-1"></div>
+				<div class="computer-score-2"></div>
+				<div class="computer-score-3"></div>
+			</div>
+			<p>Ken</p>
+		</div>
+		<img src="./assets/img/ken.png" alt="mugshot">
+	</header>
+
+	
+	<div id="characters">
+		<div class="playerIdling"></div>
+		<div class="computerIdling"></div>
+	</div>
+	
+	<div id="actions">
+		<div id="endgame">
+			<p class="message streetFont"></p>
+			<a href="#" class="retry hidden">Retry ?</a>
+		</div>
+		<div id="choices">
+			<button class="choices paper">Paper</button>
+			<button class="choices vomit">Vomit</button>
+			<button class="choices plastic">Plastic</button>
+		</div>
+	</div>
+
+</body>
+</html>
