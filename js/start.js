@@ -4,10 +4,7 @@ const selection = "../Ironhack-project-1/assets/sounds/selection.wav";
 const gameStartSound = new Audio(selection);
 
 window.onmouseover = () => {
-    music.addEventListener('canplaythrough', () => {
-        music.load();
-        music.play();
-    });
+    music.play();
     const title = document.querySelector('#title h1');
     title.classList.add('rotate');
 }
