@@ -14,21 +14,21 @@ const songs = [
   "../assets/music/Zangief.mp3"
 ];
 
-const url = songs[Math.floor(Math.random() * songs.length)];
+const url = 'Ironhack-project-1' + songs[Math.floor(Math.random() * songs.length)];
 const ost = new Audio(url);
-const win = new Audio('../assets/sounds/you-win.mp3');
-const lose = new Audio('../assets/sounds/you-lose.mp3');
-const paperSound = new Audio('../assets/sounds/paper-bag-snd.m4a');
-const vomitSound = new Audio('../assets/sounds/vomit-snd.m4a');
-const plasticSound = new Audio('../assets/sounds/plastic-bag-snd.m4a');
-const nice = new Audio('../assets/sounds/nice.m4a');
-const nope = new Audio('../assets/sounds/nope.m4a');
-const tie = new Audio('../assets/sounds/tie.m4a');
-const hit = new Audio('../assets/sounds/hit.wav');
-const groundHit = new Audio('../assets/sounds/ground-hit.wav');
-const ko = new Audio('../assets/sounds/KO.wav');
-const perferct = new Audio('../assets/sounds/perferct.mp3');
-const crowd = new Audio('../assets/sounds/crowd.wav');
+const win = new Audio('Ironhack-project-1' + '../assets/sounds/you-win.mp3');
+const lose = new Audio('Ironhack-project-1' + '../assets/sounds/you-lose.mp3');
+const paperSound = new Audio('Ironhack-project-1' + '../assets/sounds/paper-bag-snd.m4a');
+const vomitSound = new Audio('Ironhack-project-1' + '../assets/sounds/vomit-snd.m4a');
+const plasticSound = new Audio('Ironhack-project-1' + '../assets/sounds/plastic-bag-snd.m4a');
+const nice = new Audio('Ironhack-project-1' + '../assets/sounds/nice.m4a');
+const nope = new Audio('Ironhack-project-1' + '../assets/sounds/nope.m4a');
+const tie = new Audio('Ironhack-project-1' + '../assets/sounds/tie.m4a');
+const hit = new Audio('Ironhack-project-1' + '../assets/sounds/hit.wav');
+const groundHit = new Audio('Ironhack-project-1' + '../assets/sounds/ground-hit.wav');
+const ko = new Audio('Ironhack-project-1' + '../assets/sounds/KO.wav');
+const perferct = new Audio('Ironhack-project-1' + '../assets/sounds/perferct.mp3');
+const crowd = new Audio('Ironhack-project-1' + '../assets/sounds/crowd.wav');
 
 const retryBtn = document.querySelector('.retry');
 const choicesButtons = document.querySelectorAll('.choices');
@@ -239,13 +239,13 @@ function displayWeapons(playerChoice, computerChoice) {
   const playerWeapon = document.querySelector('.playerWeapon img');
   const computerWeapon = document.querySelector('.computerWeapon img');
   
-  if(playerChoice === 'Paper') playerWeapon.setAttribute('src', '../assets/img/paper-bag.png');
-  if (playerChoice === 'Vomit') playerWeapon.setAttribute('src', '../assets/img/vomit.png'); 
-  if(playerChoice === 'Plastic') playerWeapon.setAttribute('src', '../assets/img/plastic-bag.png');
+  if(playerChoice === 'Paper') playerWeapon.setAttribute('src', 'Ironhack-project-1' + '../assets/img/paper-bag.png');
+  if (playerChoice === 'Vomit') playerWeapon.setAttribute('src', 'Ironhack-project-1' + '../assets/img/vomit.png'); 
+  if(playerChoice === 'Plastic') playerWeapon.setAttribute('src', 'Ironhack-project-1' + '../assets/img/plastic-bag.png');
   
-  if(computerChoice === 'Paper') computerWeapon.setAttribute('src', '../assets/img/paper-bag.png'); 
-  if (computerChoice === 'Vomit') computerWeapon.setAttribute('src', '../assets/img/vomit.png');
-  if (computerChoice === 'Plastic') computerWeapon.setAttribute('src', '../assets/img/plastic-bag.png');
+  if(computerChoice === 'Paper') computerWeapon.setAttribute('src', 'Ironhack-project-1' + '../assets/img/paper-bag.png'); 
+  if (computerChoice === 'Vomit') computerWeapon.setAttribute('src', 'Ironhack-project-1' + '../assets/img/vomit.png');
+  if (computerChoice === 'Plastic') computerWeapon.setAttribute('src', 'Ironhack-project-1' + '../assets/img/plastic-bag.png');
 
   playerWeaponContainer.classList.remove('playerAnimation');
   playerWeaponContainer.offsetWidth;
