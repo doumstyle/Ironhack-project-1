@@ -28,9 +28,17 @@ const hit = new Audio('./../assets/sounds/hit.wav');
 const groundHit = new Audio('./../assets/sounds/ground-hit.wav');
 const ko = new Audio('./../assets/sounds/KO.wav');
 const perferct = new Audio('./../assets/sounds/perferct.mp3');
+const crowd = new Audio('./../assets/sounds/crowd.wav');
 
 const retryBtn = document.querySelector('.retry');
-const choicesBtn = document.querySelector('#choices button');
+const choicesButtons = document.querySelectorAll('.choices');
+
+const playerMovement = document.querySelector('.playerIdling');
+const computerMovement = document.querySelector('.computerIdling');
+
+const playerWeaponContainer = document.querySelector('.playerWeapon');
+const computerWeaponContainer = document.querySelector('.computerWeapon');
+
 
 window.onmouseover = () =>  {
   ost.play();
@@ -50,13 +58,19 @@ choices.forEach((choice) => {
     const computerChoice = computerChoices[Math.floor(Math.random() * 3)];
     
     compareChoices(playerChoice, computerChoice);
+    displayWeapons(playerChoice, computerChoice);
   
     setTimeout(() => {
       if (checkWinner()) {
           playerScore = 0;
           computerScore = 0;
+
           
-          choicesBtn.setAttribute('disabled', 'true');
+          choicesButtons.forEach(button =>  {
+            button.setAttribute('disabled', true);
+            button.classList.add('disabled');
+          });
+          crowd.play();
           retryBtn.classList.remove('hidden');
   
           retryBtn.onclick = () => {
@@ -73,9 +87,6 @@ choices.forEach((choice) => {
 });
 
 function compareChoices(playerChoice, computerChoice) {
-
-  const playerMovement = document.querySelector('.playerIdling');
-  const computerMovement = document.querySelector('.computerIdling');
 
   // Check for a Tie
   if (playerChoice === computerChoice) {
@@ -96,7 +107,7 @@ function compareChoices(playerChoice, computerChoice) {
       
       hit.play();
       nice.play();
-      
+
       playerScore++;
       
       updateScore('player', playerScore);
@@ -104,7 +115,7 @@ function compareChoices(playerChoice, computerChoice) {
     } else {
       hit.play();
       nope.play();
-      
+
       playerMovement.classList.remove('playerIdling');
       playerMovement.classList.add('playerHit');
       
@@ -133,14 +144,14 @@ function compareChoices(playerChoice, computerChoice) {
       
       hit.play();
       nice.play();
-      
+
       playerScore++;
       updateScore('player', playerScore);
       updateLifebars('computer', playerScore);
     } else {
       hit.play();
       nope.play();
-      
+
       playerMovement.classList.remove('playerIdling');
       playerMovement.classList.add('playerHit');
       
@@ -167,14 +178,14 @@ function compareChoices(playerChoice, computerChoice) {
       
       hit.play();
       nice.play();
-      
+
       playerScore++;
       updateScore('player', playerScore);
       updateLifebars('computer', playerScore);
     } else {
       hit.play();
       nope.play();
-      
+
       playerMovement.classList.remove('playerIdling');
       playerMovement.classList.add('playerHit');
       
@@ -202,9 +213,46 @@ function updateLifebars(loser, value) {
 
 function checkWinner() {
     if (playerScore === 3 || computerScore === 3) {
-        playerScore === 3 ?  win.play() : lose.play();
+        if(playerScore === 3) {
+          win.play();
+          playerMovement.classList.remove('playerIdling');
+          playerMovement.classList.add('playerWin');
+          computerMovement.classList.remove('computerIdling');
+          groundHit.play();
+          ost.pause();
+          computerMovement.classList.add('computerGround');
+        } else {
+          lose.play();
+          computerMovement.classList.remove('computerIdling');
+          computerMovement.classList.add('computerWin');
+          playerMovement.classList.remove('playerIdling');
+          groundHit.play();
+          ost.pause();
+          playerMovement.classList.add('playerGround');
+        } 
         return true;
     }
     return false;
+}
+
+function displayWeapons(playerChoice, computerChoice) {
+  const playerWeapon = document.querySelector('.playerWeapon img');
+  const computerWeapon = document.querySelector('.computerWeapon img');
+  
+  if(playerChoice === 'Paper') playerWeapon.setAttribute('src', './../assets/img/paper-bag.png');
+  if (playerChoice === 'Vomit') playerWeapon.setAttribute('src', './../assets/img/vomit.png'); 
+  if(playerChoice === 'Plastic') playerWeapon.setAttribute('src', './../assets/img/plastic-bag.png');
+  
+  if(computerChoice === 'Paper') computerWeapon.setAttribute('src', './../assets/img/paper-bag.png'); 
+  if (computerChoice === 'Vomit') computerWeapon.setAttribute('src', './../assets/img/vomit.png');
+  if (computerChoice === 'Plastic') computerWeapon.setAttribute('src', './../assets/img/plastic-bag.png');
+
+  playerWeaponContainer.classList.remove('playerAnimation');
+  playerWeaponContainer.offsetWidth;
+  playerWeaponContainer.classList.add('playerAnimation');
+  computerWeaponContainer.classList.remove('computerAnimation');
+  computerWeaponContainer.offsetWidth;
+  computerWeaponContainer.classList.add('computerAnimation');
+
 }
 

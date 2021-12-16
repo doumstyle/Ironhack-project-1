@@ -5,6 +5,8 @@ const gameStartSound = new Audio(selection);
 
 window.onmouseover = () => {
     music.play();
+    const title = document.querySelector('#title h1');
+    title.classList.add('rotate');
 }
 
 music.loop = true;

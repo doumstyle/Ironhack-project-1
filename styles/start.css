@@ -34,6 +34,20 @@ body {
     font-family: 'PressStart';
 }
 
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) translateZ(0px);
+    }
+    100% {
+        transform: rotate(360deg) translateZ(160px);
+    }
+}
+
+.rotate {
+	-webkit-animation: rotate 1.6s ease-in-out both;
+	        animation: rotate 1.6s ease-in-out both;
+}
+
 .subtitle {
     display: flex;
     flex-direction: column;

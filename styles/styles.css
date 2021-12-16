@@ -26,7 +26,7 @@ body {
     height: 664px;
 }
 
-@keyframes idling {
+@keyframes move4 {
 	from {
 		background-position: 0px;
 	}
@@ -35,12 +35,12 @@ body {
 	}
 }
 
-@keyframes hit {
+@keyframes move3 {
 	from {
 		background-position: 0px;
 	}
 	to {
-		background-position: -1225px;
+		background-position: -887px;
 	}
 }
 
@@ -179,45 +179,44 @@ header span {
 #actions {
 	display: flex;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     align-content: center;
-    bottom: 3em;
-    flex-direction: column;
+    bottom: 2.5em;
 }
 
 #actions button {
 	height: 110px;
-    width: 330px;
+    width: 300px;
     background: transparent;
-    font-size: 1.3em;
+    font-size: 1.5em;
     border: none;
     padding: 0 0 0px;
     border-radius: 10px;
-    margin: 0 30px 0 0;
     text-align: center;
     line-height: 100px;
     font-family: 'SingleFighter', sans-serif;
-	cursor: pointer;
+    cursor: pointer;
 }
 
 #actions button:hover {
 	transform: perspective(1px) scale3d(1.10,1.10,1);
 }
 
-#actions .paper {
+.paper {
 	color: brown;
 }
 
-#actions .vomit {
+.vomit {
 	color: greenyellow;
 }
 
-#actions .plastic {
+.plastic {
 	color: lightgrey;
 }
 
 #actions img {
-	height: 40px;
+	height: 130px;
+    padding: 0 20px;
 }
 
 #action button:nth-child(2) img {
@@ -232,6 +231,10 @@ header span {
 	display: none;
 }
 
+.disabled {
+	color: darkgray;
+}
+
 #characters {
 	display: flex;
     align-items: center;
@@ -243,7 +246,7 @@ header span {
 	background: url('../assets/img/idle-ryu.png');
     height: 440px;
     width: 200px;
-    animation: idling 0.8s steps(4) infinite;
+    animation: move4 0.8s steps(4) infinite;
     margin-right: 25em;
     position: relative;
 }
@@ -252,17 +255,56 @@ header span {
 	background: url('../assets/img/hit-ryu.png');
     height: 440px;
     width: 200px;
-    animation: hit 0.8s steps(4) 1;
+    animation: move4 0.8s steps(4) 1;
     margin-right: 25em;
     position: relative;
 	bottom: -2em;
+}
+
+@keyframes win-ryu {
+	0% {
+		background-position: 0px;
+	}
+	100% {
+		background-position: -677px;
+	}
+}
+
+.playerWin {
+	background: url('../assets/img/win-ryu.png') no-repeat;
+    height: 446px;
+    width: 272px;
+    animation: win-ryu 0.8s steps(2) 1 forwards;
+    margin-right: 25em;
+    position: relative;
+    bottom: 0em;
+    left: 11em;
+}
+
+@keyframes lose-ryu {
+	from {
+		background-position: 0px;
+	}
+	to {
+		background-position: -626px;
+	}
+}
+
+.playerGround {
+	background: url('../assets/img/lose-ryu.png') no-repeat;
+    height: 440px;
+    width: 269px;
+    animation: lose-ryu 0.7s steps(2) 1 forwards;
+    margin-right: 10em;
+    position: relative;
+    bottom: -2.3em;
 }
 
 .computerIdling {
 	background: url('../assets/img/idle-ken.png');
     height: 342px;
     width: 225px;
-    animation: idling 1.0s steps(4) infinite;
+    animation: move4 1.0s steps(4) infinite;
     position: relative;
     margin-left: 10em;
     right: 6em;
@@ -273,23 +315,60 @@ header span {
 	background: url('../assets/img/hit-ken.png');
     height: 440px;
     width: 300px;
-    animation: hit 0.8s steps(4) 1;
+    animation: move4 0.8s steps(4) 1;
     margin-right: 10em;
     position: relative;
     bottom: 0.2em;
     left: 6em;
 }
 
+@keyframes win-ken {
+	from {
+		background-position: 0px;
+	}
+	to {
+		background-position: -887px;
+	}
+}
+
+.computerWin {
+	background: url('../assets/img/win-ken.png');
+    height: 393px;
+    width: 225px;
+    animation: win-ken 0.8s steps(3) 1;
+    position: relative;
+    margin-left: 10em;
+    right: 6em;
+    bottom: 3.1em;
+}
+
+@keyframes gound-cpu {
+	0% {
+		background-position: 0px;
+	}
+	100% {
+		background-position: -962px;
+	}
+}
+
+.computerGround {
+	background: url('../assets/img/lose-ken.png') no-repeat;
+    height: 314px;
+    width: 342px;
+    animation: ground-cpu 0.8s steps(2) 1;
+    position: relative;
+    margin-left: 10em;
+    right: 6em;
+    bottom: -1em;
+}
+
 #endgame {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 20px;
+	padding: 20px;
+    margin: -70px 0 0 53px;
 }
 
 .retry {
-	font-size: 2em;
+	font-size: 1.5em;
     font-family: 'PressStart';
 	text-decoration: none;
 }
@@ -311,11 +390,43 @@ header span {
 
 #choices {
 	display: flex;
-	font-size: 4em;
+	font-size: 3em;
 }
 
-/* .scale-up-center {
-	-webkit-animation: scale-up-center 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	animation: scale-up-center 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+@keyframes computer-weapon-in {
+	from {
+		left: 50em;
+	}
+	to {
+		left: 0em;
+	}
 }
- */
+
+.computerWeapon {
+	position: relative;
+    display: none;
+}
+
+.computerAnimation {
+	animation: computer-weapon-in 1s cubic-bezier(0.4, 0, 0.2, 1);
+	display: block;
+}
+
+@keyframes player-weapon-in {
+	from {
+		left: -50em;
+	}
+	to {
+		left: 0em;
+	}
+}
+
+.playerWeapon {
+	position: relative;
+    display: none;
+}
+
+.playerAnimation {
+	animation: player-weapon-in 1s cubic-bezier(0.4, 0, 0.2, 1);
+	display: block;
+}
