@@ -15,6 +15,6 @@ const gameStartBtn = document.querySelector('.startBtn');
 gameStartBtn.onclick = () => {
     gameStartSound.play(selection);
     setTimeout(() => {
-        location.assign('Ironhack-project-1/game.html');
+        location.assign('../Ironhack-project-1/game.html');
     }, 2000);
 }
