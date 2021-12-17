@@ -31,6 +31,7 @@ const perferct = new Audio('../Ironhack-project-1/assets/sounds/perferct.mp3');
 const crowd = new Audio('../Ironhack-project-1/assets/sounds/crowd.wav');
 
 const retryBtn = document.querySelector('.retry');
+const quitBtn = document.querySelector('.quit');
 const choicesButtons = document.querySelectorAll('.choices');
 
 const playerMovement = document.querySelector('.playerIdling');
@@ -72,7 +73,8 @@ choices.forEach((choice) => {
           });
           crowd.play();
           retryBtn.classList.remove('hidden');
-  
+          quitBtn.classList.remove('hidden');
+          
           retryBtn.onclick = () => {
             setTimeout(() => {
               location.reload();

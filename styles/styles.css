@@ -363,24 +363,27 @@ header span {
 }
 
 #endgame {
+	display: flex;
+	justify-content: space-between;
 	padding: 20px;
-    margin: -70px 0 0 53px;
+    margin: -70px 0 0 0;
 }
 
-.retry {
+.retry, .quit {
 	font-size: 1.5em;
     font-family: 'PressStart';
 	text-decoration: none;
+	margin-right: 20px;
 }
 
-.retry:link, .retry:visited, .retry:active {
+.retry:link, .retry:visited, .retry:active, .quit:link, .quit:visited, .quit:active {
 	background: linear-gradient(#ff3c00, #ff7b00, #ffe600);
 	-webkit-background-clip: text;
 	background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.retry:hover {
+.retry:hover, .quit:hover {
 	transform: perspective(1px) scale3d(1.07,1.07,1);
 }
 
